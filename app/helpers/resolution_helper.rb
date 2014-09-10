@@ -1,0 +1,2 @@
+module ResolutionHelper
+end

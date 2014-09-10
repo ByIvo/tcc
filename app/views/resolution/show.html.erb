@@ -1,0 +1,54 @@
+<div class="container-fluid container-btn-question">
+	<div class="btn-group btn-group-question">
+		<% @questions.each do |question|%>
+			<button class="btn
+				<% if question == @question %>
+					btn-primary
+				<% else %>
+					 btn-default
+				<% end %>
+			">
+				<%= (@questions.index question) + 1 %>
+			</button>
+		<% end %>			
+	  </div>
+</div>
+
+<%= render 'question' %>
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+	<div class="container container-navbar-margin">
+		<div class="row">
+			<div class="col-xs-6 col-sm-4 col-md-2">
+				<!--<button class="button-size btn btn-lg btn-primary center-block" type="button">
+					Anterior
+				</button>-->
+				<%= button_to 'Anterior', class: "button-size btn btn-lg btn-primary center-block" %>
+			</div>
+			
+			<div class="col-sm-4 col-md-8 hidden-phone">
+				<div class="center-block alert alert-warning alert-dismissible">
+
+					<button type="button" class="close" data-dismiss="alert">
+						<span aria-hidden="true">
+							&times;
+						</span>
+						<span class="sr-only">
+							Close
+						</span>
+					</button>
+
+					<p class="center-block alert-text"> 
+						Você deve selecionar uma alternativa para avançar!
+					</p>
+				</div>
+			</div>
+			
+			<div class="col-xs-6 col-sm-4 col-md-2">
+				<button class="button-size btn btn-lg btn-primary center-block" type="button">
+					Próxima
+				</button>
+			</div>
+		</div>
+	</div>
+</nav>

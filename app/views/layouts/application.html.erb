@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= yield(:head) %>
+</head>
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top navbar-top-size">
+      <div class="navbar-inner">
+        <div class="row">
+                <div class="col-md-4 col-xs-4 col-lg-4"></div>
+                <div class="col-md-4 col-xs-4 col-lg-4"></div>
+                <div class="col-md-4 col-xs-4 col-lg-4">
+                        <%= render 'logged_user' %>
+                </div>
+        </div>
+      </div>
+    </nav>
+
+<%= yield %>
+
+</body>
+</html>

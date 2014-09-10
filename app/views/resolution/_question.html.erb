@@ -1,0 +1,29 @@
+<div class="container-fluid">
+<div class="row">
+	<div class="col-md-6 col-lg-6 col-xs-6">
+		
+		<h4 class="left-block">
+			<%= @question.title unless @question == nil %>
+		</h4>
+		
+		<div class="container-fluid">
+		
+		<% @question.alternatives.each do |alternative|%>
+			<div class="container-fluid">
+				<div class="input-group question-alternative">
+					<span class="input-group-addon">
+						<input type="radio" name="alternative"/>
+					</span>
+					<div class="form-control">
+						<%= alternative.title %>
+					</div>
+				</div>
+			</div>
+		<% end unless @question == nil %>
+		</div>
+	</div>
+<% unless @question.extra.empty? %>
+  <%= render 'extra_question' %>
+<% end unless @question == nil %>
+</div>
+</div>
