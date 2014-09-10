@@ -10,7 +10,7 @@
 			">
 				<%= (@questions.index question) + 1 %>
 			</button>
-		<% end %>			
+		<% end unless @questions == nil %>			
 	  </div>
 </div>
 

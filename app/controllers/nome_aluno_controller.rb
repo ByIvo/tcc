@@ -1,0 +1,2 @@
+class NomeAlunoController < ApplicationController
+end

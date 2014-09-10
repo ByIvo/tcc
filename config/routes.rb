@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  root 'resolution#index'
-
+  root 'nome_aluno#index'
+  
+  resources 'resolution'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
