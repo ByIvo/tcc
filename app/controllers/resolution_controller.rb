@@ -6,4 +6,11 @@ class ResolutionController < ApplicationController
       @question = @questions.first
     end
   end
+
+  def show
+    if @questions == nil
+      @questions = Question.all
+      @question = @questions.first
+    end
+  end
 end
