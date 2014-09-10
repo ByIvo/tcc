@@ -22,7 +22,7 @@
 		<% end unless @question == nil %>
 		</div>
 	</div>
-<% unless @question.extra.empty? %>
+<% unless @question.description.empty? %>
   <%= render 'extra_question' %>
 <% end unless @question == nil %>
 </div>
