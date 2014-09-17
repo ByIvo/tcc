@@ -1,9 +1,12 @@
 <div class="container-fluid">
-<form method="show" action="resolution/index">
- <div style="margin-top: 10%; text-align: center;width: 500px;padding: 10px; border: 1px solid #AAAAAA; border-radius: 10px" class="bs-callout bs-callout-info center-block">
-  <h4 class="center-block"> Informe o nome do aluno: </h4>
-  <input class="center-block" style="width: 60%; margin: auto" type="text" placeholder="Nome do aluno"/>
-  <input class="center-block btn btn-primary" style="width: 30%; margin: 10px auto" type="submit" value="Iniciar" placeholder="Nome do aluno"/>
- </div>
-</form>
+
+	<%= form_tag '/nome_aluno/start_exam' do %>
+		<div style="margin-top: 10%; text-align: center;width: 500px;padding: 10px; border: 1px solid #AAAAAA; border-radius: 10px" class="bs-callout bs-callout-info center-block">
+			<h4 class="center-block"> Informe o nome do aluno: </h4>
+			
+			<%= text_field_tag :student_name, "" , {class: 'center-block', style: 'width: 60%; margin: auto', placeholder: 'Nome do aluno', maxlength: '20' } %>
+
+			<%= button_tag "Iniciar Teste", {class: 'center-block btn btn-primary', style: 'width: 30%; margin: 10px auto', placeholder: 'Nome do aluno'}%>
+		</div>
+	<% end %>
 </div>

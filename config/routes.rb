@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'nome_aluno#index'
   
-  resources 'resolution'
+  get '/resolution', to: 'resolution#show'
+  post '/nome_aluno/start_exam', to: 'nome_aluno#start_exam', as: 'start_exam'
+
+  post '/resolution/next_question', to:'resolution#next_question', as: 'next_question'
+  post '/resolution/last_question', to:'resolution#last_question', as: 'last_question'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

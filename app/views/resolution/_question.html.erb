@@ -3,27 +3,31 @@
 	<div class="col-md-6 col-lg-6 col-xs-6">
 		
 		<h4 class="left-block">
-			<%= @question.title unless @question == nil %>
+			<%= @question.question.title %>
 		</h4>
 		
 		<div class="container-fluid">
 		
-		<% @question.alternatives.each do |alternative|%>
+		<% @question.question.alternatives.sample(@question.question.alternatives.size).each do |alternative|%>
 			<div class="container-fluid">
 				<div class="input-group question-alternative">
 					<span class="input-group-addon">
-						<input type="radio" name="alternative"/>
+						<% if alternative.correct %>
+							<%= radio_button_tag 'alternative', alternative.id, selected: true %>
+						<% else %>
+							<%= radio_button_tag 'alternative', alternative.id %>
+						<% end %>
 					</span>
-					<div class="form-control">
+					<div class="form-control" style="height: auto">
 						<%= alternative.title %>
 					</div>
 				</div>
 			</div>
-		<% end unless @question == nil %>
+		<% end %>
 		</div>
 	</div>
-<% unless @question.description.empty? %>
+<% unless @question.question.description.empty? %>
   <%= render 'extra_question' %>
-<% end unless @question == nil %>
+<% end  %>
 </div>
 </div>

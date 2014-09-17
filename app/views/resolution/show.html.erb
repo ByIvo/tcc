@@ -1,6 +1,6 @@
 <div class="container-fluid container-btn-question">
 	<div class="btn-group btn-group-question">
-		<% @questions.each do |question|%>
+		<% @exam.exam_questions.each do |question|%>
 			<button class="btn
 				<% if question == @question %>
 					btn-primary
@@ -8,21 +8,21 @@
 					 btn-default
 				<% end %>
 			">
-				<%= (@questions.index question) + 1 %>
+				<%= (@exam.exam_questions.index question) + 1 %>
 			</button>
-		<% end %>			
+		<% end unless @exam.exam_questions == nil unless @exam == nil%>			
 	  </div>
 </div>
-<%= render 'question' %>
+
+<%= render 'question' unless @question == nil %>
 
 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
 	<div class="container container-navbar-margin">
 		<div class="row">
 			<div class="col-xs-6 col-sm-4 col-md-2">
-				<!--<button class="button-size btn btn-lg btn-primary center-block" type="button">
-					Anterior
-				</button>-->
-				<%= button_to 'Anterior', class: "button-size btn btn-lg btn-primary center-block" %>
+				<%= form_tag '/resolution/last_question' do %>
+					<%= button_tag 'Anterior',{class: "button-size btn btn-lg btn-primary center-block"} %>
+				<% end %>
 			</div>
 			
 			<div class="col-sm-4 col-md-8 hidden-phone">
@@ -44,9 +44,9 @@
 			</div>
 			
 			<div class="col-xs-6 col-sm-4 col-md-2">
-				<button class="button-size btn btn-lg btn-primary center-block" type="button">
-					Próxima
-				</button>
+				<%= form_tag '/resolution/next_question' do %>
+					<%= button_tag 'Próxima',{class: "button-size btn btn-lg btn-primary center-block" } %>
+				<% end %>
 			</div>
 		</div>
 	</div>
