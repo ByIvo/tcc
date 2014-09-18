@@ -7,7 +7,7 @@ module ExamHelper
 		@exam.start_date = Time.now
 		@exam.save
 
-		@questions = Question.all.sample(5).each do |question|
+		@questions = Question.all.sample(15).each do |question|
 			@exam_question = ExamQuestion.new
 			@exam_question.question = question
 			@exam_question.exam = @exam
