@@ -1,0 +1,18 @@
+<div class="container-fluid container-btn-question">
+	<div class="btn-group btn-group-question">
+		<% @exam.exam_questions.each do |question|%>
+
+			<% @index_actual_question = @exam.exam_questions.index question %>
+
+			<% if question == @question %>
+				<% @btn_class = "btn btn-primary" %>
+			<% elsif question.answer == nil  %>
+				<% @btn_class = "btn btn-default" %>
+			<% else %>
+				<% @btn_class = "btn btn-success" %>
+			<% end %>
+
+			<%= button_tag (@index_actual_question + 1) , {class: @btn_class, value: @index_actual_question, name: 'btn_question_control'} %>
+		<% end%>			
+	  </div>
+</div>

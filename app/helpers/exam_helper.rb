@@ -7,7 +7,7 @@ module ExamHelper
 		@exam.start_date = Time.now
 		@exam.save
 
-		@questions = Question.all.sample(10).each do |question|
+		@questions = Question.all.sample(5).each do |question|
 			@exam_question = ExamQuestion.new
 			@exam_question.question = question
 			@exam_question.exam = @exam
@@ -19,6 +19,13 @@ module ExamHelper
 		
 	end
 
-	module_function :create_exam
+	def finish_exam(exam)
+		exam.finish_date = Time.now
+		exam.save
+
+		exam
+	end
+
+	module_function :create_exam, :finish_exam
 
 end

@@ -4,10 +4,14 @@ Rails.application.routes.draw do
   root 'nome_aluno#index'
   
   get '/resolution', to: 'resolution#show'
+  get '/result', to: 'resolution#result'
+
   post '/nome_aluno/start_exam', to: 'nome_aluno#start_exam', as: 'start_exam'
 
-  post '/resolution/next_question', to:'resolution#next_question', as: 'next_question'
-  post '/resolution/last_question', to:'resolution#last_question', as: 'last_question'
+  post '/resolution/handle_question', to:'resolution#handle_question', as: 'handle_question'
+  
+  #post '/resolution/next_question', to:'resolution#next_question', as: 'next_question'
+  #post '/resolution/last_question', to:'resolution#last_question', as: 'last_question'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

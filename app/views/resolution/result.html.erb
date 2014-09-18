@@ -1,0 +1,139 @@
+<div class="containter-fluid page-header">
+		<h2>Resultados do aluno <%= @exam.name %></h2>
+</div>
+
+
+<% counter = 0 %>
+<% @exam.exam_questions.each do |question| %>
+	<ul class="container list-group">
+		<li class="list-group-item">
+			<div class="row">
+				<div class="col-xs-6 col-sm-4 col-md-6">
+
+					<div class="page-header">
+						<%= counter = counter + 1 %> - <%= question.question.title %>
+					</div>	
+					<small>
+						Resposta em <%= question.answer_date.strftime('%H:%M:%S %d/%m/%Y') %>
+					</small>
+				</div>
+
+				<div class="col-xs-6 col-sm-4 col-md-6">
+					<% if question.answer.correct %>
+						<small><%= ['Assim você vai longe', 'Nem meu papagaio faria melhor','Confesso que essa eu não sabia','Muito bom!','Até parece que você sabe o que está fazendo', 'Parabéns, assim você vai longe', 'Parabéns, mas essa era fácil!', 'Só fiquei em dúvida nessa. O resto não sabia!', 'Sem mensagem para você, cara!','Continue assim.', 'Ganhou uma estrelinha para colar na testa', 'Essa até eu sabia', 'Aposto que você chutou!', 'Isso aí, mais uns 7 anos você estará bom no inglês!', 'Perfect answer!', 'Congratulations', 'Five starts to you'].sample%></small>
+						<div class="alert alert-success">
+							<%= question.answer.title %>
+						</div>
+					<% else %>
+						<small>Sua resposta:</small>
+						<div class="alert alert-danger">
+							<%= question.answer.title %>
+						</div>
+						<small>Alternativa correta:</small>
+						<div class="alert alert-warning">
+							<%= (ResolutionHelper.get_right_alternative(question.question)).title %>
+						</div>
+					<% end %>
+				</div>
+
+			</div>
+		</li>
+	</ul>
+<% end %>
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+	<div class="container container-navbar-margin">
+		<div class="row">
+			
+			<div class="col-xs-4 col-sm-4 col-md-4">
+				<h3 style="text-align: right">Resultados gerais: </h3>
+			</div>
+			<!-- RESULTADOS DAS QUESTÕES-->
+			<div class="col-xs-4 col-sm-4 col-md-4">
+				<div class="row">
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<div class="content" style="text-align: right">
+							Número de Questões
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<div class="content">
+							<%= ResolutionHelper.number_of_questions @exam %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<div class="content" style="text-align: right">
+							Acertos:
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<div class="content">
+							<%= ResolutionHelper.number_of_right_questions @exam %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<div class="content" style="text-align: right">
+							Nota
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<div class="content">
+							<%= ResolutionHelper.exam_grade @exam %>%
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- RESULTADOS DO TEMPO-->
+			<div class="col-xs-4 col-sm-4 col-md-4">
+				<div class="row">
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<div class="content" style="text-align: right">
+							Hora de início:
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<div class="content">
+							<%= @exam.start_date.strftime('%H:%M:%S %d/%m/%Y') %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<div class="content" style="text-align: right">
+							Hora de término:
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<div class="content">
+							<%= @exam.finish_date.strftime('%H:%M:%S %d/%m/%Y') %>
+						</div>
+					</div>
+				</div>
+				<!--
+				<div class="row">
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<div class="content" style="text-align: right">
+							Tempo total de prova:
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<div class="content">
+							<%= @exam %>%
+						</div>
+					</div>
+				</div>
+				-->
+			</div>
+				
+			</div>
+		</div>
+	</div>
+</nav>

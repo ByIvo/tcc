@@ -12,8 +12,8 @@
 			<div class="container-fluid">
 				<div class="input-group question-alternative">
 					<span class="input-group-addon">
-						<% if alternative.correct %>
-							<%= radio_button_tag 'alternative', alternative.id, selected: true %>
+						<% if @question.answer != nil && @question.answer == alternative%>
+							<%= radio_button_tag 'alternative', alternative.id , selected: 'true'%>
 						<% else %>
 							<%= radio_button_tag 'alternative', alternative.id %>
 						<% end %>

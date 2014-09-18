@@ -1,0 +1,11 @@
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+	<div class="container container-navbar-margin">
+		<div class="row">
+			<% if all_filled? %>
+				<%= render 'btn_finish_exam' %>
+			<% else %>
+				<%= render 'btn_last_next_and_message' %>
+			<% end %>
+		</div>
+	</div>
+</nav>
