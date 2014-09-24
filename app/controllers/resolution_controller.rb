@@ -10,6 +10,8 @@ class ResolutionController < ApplicationController
 
     @exam = Exam.find(session['exam'])
 
+    redirect_to action: "result" unless @exam.finish_date == nil
+
     @question = @exam.exam_questions[session['actual_question']]
   end
 

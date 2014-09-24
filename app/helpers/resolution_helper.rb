@@ -1,16 +1,18 @@
 module ResolutionHelper
 
-	def exam_grade(exam)
-		((number_of_right_questions(exam) * 100) / number_of_questions(exam))
+	def exam_grade(exam, session)
+		((number_of_right_questions(exam,session) * 100) / number_of_questions(exam))
 	end
 
 	def number_of_questions(exam)
 		exam.exam_questions.size
 	end
 
-	def number_of_right_questions(exam)
+	def number_of_right_questions(exam, session)
 		
-		if @number_of_right_questions == nil
+		number_of_right_questions = session['number_of_right_questions']
+
+		if number_of_right_questions == nil
 			count_alternative = 0
 
 			exam.exam_questions.each do |question|
@@ -19,10 +21,10 @@ module ResolutionHelper
 					end		
 			end	
 
-			@number_of_right_questions = count_alternative
+			number_of_right_questions = count_alternative
 		end
 
-		@number_of_right_questions
+		session['number_of_right_questions'] = number_of_right_questions
 	end
 
 	def get_right_alternative(question)

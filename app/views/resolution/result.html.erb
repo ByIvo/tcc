@@ -71,7 +71,7 @@
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-6">
 						<div class="content">
-							<%= ResolutionHelper.number_of_right_questions @exam %>
+							<%= ResolutionHelper.number_of_right_questions(@exam,session) %>
 						</div>
 					</div>
 				</div>
@@ -84,7 +84,7 @@
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-6">
 						<div class="content">
-							<%= ResolutionHelper.exam_grade @exam %>%
+							<%= ResolutionHelper.exam_grade(@exam,session) %>%
 						</div>
 					</div>
 				</div>
