@@ -1,0 +1,13 @@
+Wed, 01 Oct 2014 17:32:29 -0300
+README.rdoc	Wed, 10 Sep 2014 18:46:33 -0300
+app/controllers/application_controller.rb	Tue, 23 Sep 2014 17:31:33 -0300
+app/controllers/nome_aluno_controller.rb	Wed, 17 Sep 2014 17:31:32 -0300
+app/controllers/resolution_controller.rb	Wed, 24 Sep 2014 07:28:18 -0300
+app/helpers/application_helper.rb	Wed, 10 Sep 2014 18:46:33 -0300
+app/helpers/exam_helper.rb	Thu, 18 Sep 2014 07:39:51 -0300
+app/helpers/nome_aluno_helper.rb	Wed, 10 Sep 2014 19:45:47 -0300
+app/helpers/resolution_helper.rb	Wed, 24 Sep 2014 07:35:32 -0300
+app/models/alternative.rb	Wed, 10 Sep 2014 18:55:45 -0300
+app/models/exam.rb	Wed, 17 Sep 2014 16:43:22 -0300
+app/models/exam_question.rb	Thu, 18 Sep 2014 00:39:16 -0300
+app/models/question.rb	Wed, 17 Sep 2014 15:03:24 -0300
