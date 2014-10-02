@@ -7,6 +7,8 @@ module ExamHelper
 		@exam.start_date = Time.now
 		@exam.save
 
+		session['number_of_right_questions'] = nil
+
 		@questions = Question.all.sample(15).each do |question|
 			@exam_question = ExamQuestion.new
 			@exam_question.question = question
