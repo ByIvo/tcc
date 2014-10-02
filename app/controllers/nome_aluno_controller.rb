@@ -5,6 +5,7 @@ class NomeAlunoController < ApplicationController
 
 		session['exam'] = @created_exam.id
 		session['actual_question'] = 0
+		session['number_of_right_questions'] = nil
 		redirect_to '/resolution'
 	end
 end
