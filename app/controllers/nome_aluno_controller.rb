@@ -1,5 +1,13 @@
 class NomeAlunoController < ApplicationController
 
+	def index
+
+	end
+
+	def request_student_name
+
+	end		
+
 	def start_exam
 		@created_exam = ExamHelper.create_exam params[:student_name]
 

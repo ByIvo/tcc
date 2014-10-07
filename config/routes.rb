@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/result', to: 'resolution#result'
 
   post '/nome_aluno/start_exam', to: 'nome_aluno#start_exam', as: 'start_exam'
+  post '/nome_aluno/request_student_name', to: 'nome_aluno#request_student_name', as: 'request_student_name'
 
   post '/resolution/handle_question', to:'resolution#handle_question', as: 'handle_question'
   

@@ -1,12 +1,18 @@
-<div class="container-fluid">
+<%= form_tag '/nome_aluno/request_student_name' do %>
+	<div class="main-screen container-fluid">
 
-	<%= form_tag '/nome_aluno/start_exam' do %>
-		<div style="margin-top: 10%; text-align: center;width: 500px;padding: 10px; border: 1px solid #AAAAAA; border-radius: 10px" class="bs-callout bs-callout-info center-block">
-			<h4 class="center-block"> Informe o seu nome: </h4>
-			
-			<%= text_field_tag :student_name, "" , {class: 'center-block', style: 'width: 60%; margin: auto', placeholder: 'Nome do aluno', maxlength: '20' } %>
-
-			<%= button_tag "Iniciar Teste", {class: 'center-block btn btn-primary', style: 'width: 30%; margin: 10px auto', placeholder: 'Nome do aluno'}%>
+		<div class="page-header">
+			<h1 class="center-block main-title">
+				GAS
+			</h1>
 		</div>
-	<% end %>
-</div>
+
+		<p class="description-title"> 
+			Go ahead student, click down
+		</p>
+
+		<button class="btn btn-default navbar-btn center-block button-go-ahead">
+			GO AHEAD
+		</button>
+	</div>
+<% end -%>
