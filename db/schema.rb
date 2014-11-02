@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141101074542) do
+ActiveRecord::Schema.define(version: 20141102041959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,21 @@ ActiveRecord::Schema.define(version: 20141101074542) do
 
   add_index "alternatives", ["question_id"], name: "index_alternatives_on_question_id", using: :btree
 
+  create_table "classifications", force: true do |t|
+    t.string   "name"
+    t.integer  "father_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "classifications", ["father_id"], name: "index_classifications_on_father_id", using: :btree
+
+  create_table "divisions", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "exam_questions", force: true do |t|
     t.integer  "question_id"
     t.datetime "answer_date"
@@ -40,13 +55,42 @@ ActiveRecord::Schema.define(version: 20141101074542) do
   add_index "exam_questions", ["exam_id"], name: "index_exam_questions_on_exam_id", using: :btree
   add_index "exam_questions", ["question_id"], name: "index_exam_questions_on_question_id", using: :btree
 
+  create_table "exam_requests", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "exam_rules", force: true do |t|
+    t.integer  "quantity"
+    t.integer  "classification_id"
+    t.integer  "exam_request_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "exam_rules", ["classification_id"], name: "index_exam_rules_on_classification_id", using: :btree
+  add_index "exam_rules", ["exam_request_id"], name: "index_exam_rules_on_exam_request_id", using: :btree
+
   create_table "exams", force: true do |t|
     t.string   "name"
     t.datetime "start_date"
     t.datetime "finish_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "exam_request_id"
+    t.integer  "maker_id"
   end
+
+  create_table "makers", force: true do |t|
+    t.string   "name"
+    t.integer  "division_id"
+    t.integer  "identifier"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "makers", ["division_id"], name: "index_makers_on_division_id", using: :btree
 
   create_table "managers", force: true do |t|
     t.string   "email",                  default: "", null: false
