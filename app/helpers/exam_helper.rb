@@ -34,7 +34,7 @@ module ExamHelper
 	def select_question_by_rule(exam_request)
 		questions = Array.new
 
-		exam_request.exam_rules.each do |rule|
+		exam_request.exam_rules.shuffle.each do |rule|
 			questions.concat Question.where(classification: rule.classification).sample(rule.quantity)
 		end
 
@@ -58,10 +58,6 @@ module ExamHelper
 		exam_questions
 	end
 
-	def nl2br(s)
-		s.gsub(/\n/, '<br>')
-	end
-
-	module_function :create_exam, :finish_exam, :select_question_by_rule, :create_exam_question_by_selected_questions, :search_innitialized_exam, :nl2br
+	module_function :create_exam, :finish_exam, :select_question_by_rule, :create_exam_question_by_selected_questions, :search_innitialized_exam
 
 end

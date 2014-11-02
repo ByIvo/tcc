@@ -7,10 +7,10 @@
 			<h4 class="label-form-request-student-identification"> Informe o seu nome: </h4>
 			<%= text_field_tag :maker_name, params[:maker_name] , {class: 'center-block field-form-request-student-identification', placeholder: 'Nome do aluno', maxlength: '120' } %>
 
-			<h4 class="label-form-request-student-identification"> Selecione sua sala: </h4>
+			<h4 class="label-form-request-student-identification"> Selecione sua turma: </h4>
 			<%= select_tag 'division', options_from_collection_for_select(@divisions, "id", "name"), {class: 'center-block field-form-request-student-identification'} %>
 
-			<h4 class="label-form-request-student-identification"> Informe seu identificador: </h4>
+			<h4 class="label-form-request-student-identification"> Informe seu número: </h4>
 			<%= number_field_tag :identifier,0000, {class: 'center-block field-form-request-student-identification'} %>
 			
 			<%= button_tag "Iniciar Teste", {name: :new_exam, class: 'center-block btn btn-primary button-form-request-student-identification send-form-request-student-identification' }%>

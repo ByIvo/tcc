@@ -43,7 +43,7 @@ class NomeAlunoController < ApplicationController
 			started_exam = ExamHelper.search_innitialized_exam maker, exam_request
 			
 			if started_exam == nil
-				flash[:error] = "Vocẽ não possui nenhum exâme para continuar."
+				flash[:error] = "Vocẽ não possui nenhum exame para continuar."
 			else
 				start_resolution started_exam
 				return
@@ -76,9 +76,9 @@ class NomeAlunoController < ApplicationController
 			if exam != nil
 
 				if exam.finish_date == nil
-					flash[:error] = "Você já inicou esse exâme, tente continuá-lo."
+					flash[:error] = "Você já inicou esse exame, tente continuá-lo."
 				else
-					flash[:error] = "Você já concluiu esse exâme, caso necessite de ajuda, peça ajuda de um professor."
+					flash[:error] = "Você já concluiu esse exame, caso necessite de ajuda, peça ajuda de um professor."
 				end
 			end
 
