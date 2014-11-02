@@ -1,11 +1,11 @@
 <div class="container-fluid">
 
-	<%= form_tag '/start_exam' do %>
+	<%= form_tag '/make_exam' do %>
 		<div class="bs-callout bs-callout-info center-block block-form-request-student-identification">
 			
 
 			<h4 class="label-form-request-student-identification"> Informe o seu nome: </h4>
-			<%= text_field_tag :maker_name, "" , {class: 'center-block field-form-request-student-identification', placeholder: 'Nome do aluno', maxlength: '120' } %>
+			<%= text_field_tag :maker_name, params[:maker_name] , {class: 'center-block field-form-request-student-identification', placeholder: 'Nome do aluno', maxlength: '120' } %>
 
 			<h4 class="label-form-request-student-identification"> Selecione sua sala: </h4>
 			<%= select_tag 'division', options_from_collection_for_select(@divisions, "id", "name"), {class: 'center-block field-form-request-student-identification'} %>
@@ -13,7 +13,19 @@
 			<h4 class="label-form-request-student-identification"> Informe seu identificador: </h4>
 			<%= number_field_tag :identifier,0000, {class: 'center-block field-form-request-student-identification'} %>
 			
-			<%= button_tag "Iniciar Teste", {class: 'center-block btn btn-primary send-form-request-student-identification' }%>
+			<%= button_tag "Iniciar Teste", {name: :new_exam, class: 'center-block btn btn-primary button-form-request-student-identification send-form-request-student-identification' }%>
+			<%= button_tag "Continuar Teste", {name: :continue_exam, class: 'center-block btn btn-primary button-form-request-student-identification' }%>
 		</div>
+
+		<% if flash[:error] %>
+			<div class="alert alert-danger alert-dismissible error-form-request-student-identification" role="alert">
+	  			<button type="button" class="close" data-dismiss="alert">
+	  				<span aria-hidden="true">&times;</span>
+	  				<span class="sr-only">Close</span>
+	  			</button>
+	  		
+	  			<strong>Infelizmente você não pode continuar! </strong> <%= flash[:error] %>
+			</div>
+		<% end %>
 	<% end %>
 </div>

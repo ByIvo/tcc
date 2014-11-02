@@ -15,10 +15,14 @@
     <nav class="navbar navbar-default navbar-fixed-top navbar-top-size">
       <div class="navbar-inner">
         <div class="row">
-                <div class="col-md-4 col-xs-4 col-lg-4"></div>
-                <div class="col-md-4 col-xs-4 col-lg-4"></div>
                 <div class="col-md-4 col-xs-4 col-lg-4">
-                        <%= render 'logged_user' %>
+                    <%= render 'left_info' %>
+                </div>
+                <div class="col-md-4 col-xs-4 col-lg-4"> 
+                   <%= render 'middle_info' %>
+                </div>
+                <div class="col-md-4 col-xs-4 col-lg-4">
+                      <%= render 'right_info' %>
                 </div>
         </div>
       </div>

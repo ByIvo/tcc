@@ -51,10 +51,14 @@
 	margin: auto;
 }
 
-.send-form-request-student-identification
+.button-form-request-student-identification
 {
 	width: 50%;
 	text-align: center;
+	margin-top: 5px;
+}
+.send-form-request-student-identification
+{
 	margin-top: 30px;
 }
 
@@ -62,8 +66,14 @@
 {
 	margin-top: 30px; 
 	text-align: center;
-	width: 500px;
-	padding: 10px; 
+	width: 50%;
+	padding: 5px 10px; 
 	border: 1px solid #AAAAAA; 
 	border-radius: 10px;
+}
+
+.error-form-request-student-identification
+{
+	margin: auto 20%;
+	margin-top: 30px;
 }
