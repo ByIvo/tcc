@@ -1,12 +1,19 @@
 <div class="container-fluid">
 
-	<%= form_tag '/nome_aluno/start_exam' do %>
-		<div style="margin-top: 10%; text-align: center;width: 500px;padding: 10px; border: 1px solid #AAAAAA; border-radius: 10px" class="bs-callout bs-callout-info center-block">
-			<h4 class="center-block"> Informe o seu nome: </h4>
+	<%= form_tag '/start_exam' do %>
+		<div class="bs-callout bs-callout-info center-block block-form-request-student-identification">
 			
-			<%= text_field_tag :student_name, "" , {class: 'center-block', style: 'width: 60%; margin: auto', placeholder: 'Nome do aluno', maxlength: '20' } %>
 
-			<%= button_tag "Iniciar Teste", {class: 'center-block btn btn-primary', style: 'width: 30%; margin: 10px auto', placeholder: 'Nome do aluno'}%>
+			<h4 class="label-form-request-student-identification"> Informe o seu nome: </h4>
+			<%= text_field_tag :maker_name, "" , {class: 'center-block field-form-request-student-identification', placeholder: 'Nome do aluno', maxlength: '120' } %>
+
+			<h4 class="label-form-request-student-identification"> Selecione sua sala: </h4>
+			<%= select_tag 'division', options_from_collection_for_select(@divisions, "id", "name"), {class: 'center-block field-form-request-student-identification'} %>
+
+			<h4 class="label-form-request-student-identification"> Informe seu identificador: </h4>
+			<%= number_field_tag :identifier,0000, {class: 'center-block field-form-request-student-identification'} %>
+			
+			<%= button_tag "Iniciar Teste", {class: 'center-block btn btn-primary send-form-request-student-identification' }%>
 		</div>
 	<% end %>
 </div>

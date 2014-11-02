@@ -6,11 +6,12 @@ Rails.application.routes.draw do
   get '/resolution', to: 'resolution#show'
   get '/result', to: 'resolution#result'
 
-  post '/nome_aluno/start_exam', to: 'nome_aluno#start_exam', as: 'start_exam'
-  post '/nome_aluno/request_student_name', to: 'nome_aluno#request_student_name', as: 'request_student_name'
+  post '/start_exam', to: 'nome_aluno#start_exam', as: 'start_exam'
+
+  get '/request_maker_identification', to: 'nome_aluno#request_student_name', as: 'request_maker_identification'
 
   post '/resolution/handle_question', to:'resolution#handle_question', as: 'handle_question'
-  
+
   #post '/resolution/next_question', to:'resolution#next_question', as: 'next_question'
   #post '/resolution/last_question', to:'resolution#last_question', as: 'last_question'
   # The priority is based upon order of creation: first created -> highest priority.
