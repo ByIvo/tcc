@@ -3,7 +3,9 @@
 	<div class="col-md-6 col-lg-6 col-xs-6">
 		
 		<h4 class="left-block">
-			<%= simple_format(@question.question.title) %>
+			
+
+			<%= image_tag @question.question.description, class: "center-block img-responsive img-thumbnail question-description-image", title: "Complemento" %>
 		</h4>
 		
 		<div class="container-fluid">
