@@ -1,0 +1,116 @@
+
+
+<table>
+
+
+		<% Division.all.each do |div| %>
+			<div style="width: auto; overflow-x: auto; clear: both">
+			<tr>
+				<td>
+					<h5>
+						<%= div.name %>
+					</h5>
+				</td>
+			</tr>
+			<tr>
+				<% Maker.where(division: div).each do |maker| %>
+					<%  maker.exams.each do |exam| %>
+						<td>
+							<table  border="1" style="border: solid 1px #AAA;max-width: 80px;min-width: 30px;float: left; margin: 1px;font-size: 11px">
+								<tr>
+									<td colspan="2">
+										<%= exam.maker.name.split(' ').first.capitalize %>
+									</td>
+								</tr>
+								<% exam.exam_questions.each do |exam_question| %>
+								<tr>
+
+									<td style="text-align: center;width: 50%;border: solid 1px #AAA">
+										<%= exam_question.question.id %>
+									</td>
+									<td  style="text-align: center;width: 50%; border: solid 1px #AAA">
+										<%= exam_question.answer.correct ? 'T' : 'F' %>
+									</td>
+								</tr>
+							<% end %>
+						</table>
+						</td>
+					<% end %>
+				<% end %>
+			</tr>
+			</div>
+			<div style="page-break-after: always"></div>
+		<% end %>
+
+</table>
+
+<!--
+<div style="width: auto; overflow-x: auto">
+	<% Division.all.each do |div| %>
+		<div style="width: auto; overflow-x: auto; clear: both">
+			<h5>
+				<%= div.name %>
+			</h5>
+			<% Maker.where(division: div).each do |maker| %>
+				<%  maker.exams.each do |exam| %>
+					
+						<table  border="1" style="border: solid 1px #AAA;max-width: 80px;min-width: 30px;float: left; margin: 1px;font-size: 11px">
+							<tr>
+								<td colspan="2">
+									<%= exam.maker.name.split(' ').first.capitalize %>
+								</td>
+							</tr>
+							<% exam.exam_questions.each do |exam_question| %>
+							<tr>
+
+								<td style="text-align: center;width: 50%;border: solid 1px #AAA">
+									<%= exam_question.question.id %>
+								</td>
+								<td  style="text-align: center;width: 50%; border: solid 1px #AAA">
+									<%= exam_question.answer.correct ? 'T' : 'F' %>
+								</td>
+							</tr>
+						<% end %>
+				<% end %>
+			<% end %>
+		</div>
+		<div style="page-break-after: always"></div>
+	<% end %>
+</div>
+
+<div style="width: auto; overflow-x: auto">
+	<% Division.all.each do |div| %>
+		<div style="width: auto; overflow-x: auto">
+			<h5>
+				<%= div.name %>
+			</h5>
+			<% Maker.where(division: div).each do |maker| %>
+				<%  maker.exams.each do |exam| %>
+					
+						<table  border="1" style="border: solid 1px #AAA;float: left; margin: 1px;font-size: 11px">
+							<tr>
+								<td rowspan="2" style="min-width: 50px">
+									<%= exam.maker.name.split(' ').first.capitalize %>
+								</td>
+							
+							<% exam.exam_questions.each do |exam_question| %>
+								<td style="text-align: center;border: solid 1px #AAA">
+									<%= exam_question.question.id %>
+								</td>
+							<% end %>
+							</tr>
+							<tr>
+								<% exam.exam_questions.each do |exam_question| %>
+									<td  style="text-align: center;border: solid 1px #AAA">
+										<%= exam_question.answer.correct ? 'T' : 'F' %>
+									</td>
+								<% end %>
+							</tr>
+								
+								
+				<% end %>
+			<% end %>
+		</div>
+		<div style="page-break-after: always"></div>
+	<% end %>
+</div>-->

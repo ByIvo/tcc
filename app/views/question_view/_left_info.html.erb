@@ -1,0 +1,7 @@
+<div class="container-fluid" style="margin-top: 10px">
+	<h4 class="left-block">
+		<% unless @question == nil %>
+			<strong>Categoria:</strong> <%= @question.question.classification.name%>
+		<% end %>
+	</h4>
+</div>

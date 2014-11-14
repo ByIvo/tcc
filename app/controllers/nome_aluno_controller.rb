@@ -5,7 +5,7 @@ class NomeAlunoController < ApplicationController
 	end
 
 	def request_student_name
-		@divisions = Division.all
+		@divisions = Division.where(:active => true)
 	end		
 
 	def make_exam

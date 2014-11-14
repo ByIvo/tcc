@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get '/resolution', to: 'resolution#show'
   get '/result', to: 'resolution#result'
 
+  get '/questions', to: 'question_view#show'
+  get '/maker_result', to: 'question_view#maker_result'
+
   post '/make_exam', to: 'nome_aluno#make_exam', as: 'make_exam'
 
   get '/request_maker_identification', to: 'nome_aluno#request_student_name', as: 'request_maker_identification'
